@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang ="en" xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:h="http://xmlns.jcp.org/jsf/html"
+	  xmlns:f="http://java.sun.com/jsf/core"
+	  xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+<h:head>
+  <title>Demo</title>
+</h:head>
+
+<f:facet name="middle">
+ 			
+ 			<h:outputStylesheet name="css/demo.css" />
+            
+        </f:facet>
+
+<h:body>
+	<ui:param name="errorMessages" value="#{facesContext.getMessageList()}" />
+	<h:panelGroup rendered="#{not empty errorMessages}" styleClass="errorMsg">
+	  <h:outputText value="Form Submission was not successful; Please review and correct listed errors and then resubmit " 
+	      escape="false"/>
+	  <br />
+	  <h:messages style="color: red" globalOnly="false"/>
+	</h:panelGroup>
+	
+	
+	<h:form styleClass="form-inline" id="demo-form">
+	    
+	
+	    	<h:inputText id="name" 
+					 value ="#{demo.name}"
+					 class="form-control m-r-15"
+					 a:placeholder = "Enter Name"
+					 >
+					 
+		   </h:inputText>
+		   
+			 
+	
+			<h:inputText id="country" 
+						 value ="#{demo.country}"
+						 class="form-control"
+						 a:placeholder = "Country"/>
+	    
+	    
+		<br/><br/>
+		
+		
+			<h:inputText id="phone" 
+					 value ="#{demo.phone}"
+					 class="form-control m-r-15"
+					 a:placeholder = "Phone number">
+				
+			 </h:inputText>
+			 
+			<h:inputTextarea id="comments" 
+						 value ="#{demo.comments}"
+						 class="form-control"
+						 a:placeholder = "Comments"/>
+		
+		
+		<br/><br/>
+		
+		<div>
+			<h:selectBooleanCheckbox id="remember"  value="#{demo.remember}" />
+    		<h:outputLabel value="Check me" class ="m-l-10" for="remember" />
+		</div>
+		
+		
+			
+		<br/><br/><br/>
+		
+	
+    
+		<h:commandButton value="Save" styleClass="btn btn-primary m-r-15" action="#{demo.save}" />
+		<h:commandButton value="Confirm" styleClass="btn btn-default m-r-15" action="confirm.xhtml"/>
+		<h:commandButton value="Commit" styleClass="btn btn-default" save="save.xhtml"/>
+		
+	</h:form>
+</h:body>
+
+</html>
