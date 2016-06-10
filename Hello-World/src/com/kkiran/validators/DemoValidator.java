@@ -25,7 +25,8 @@ public class DemoValidator implements Validator{
 		
 		
 		FacesMessage msg = new FacesMessage("E-mail validation failed.", "Invalid E-mail format.");
-		msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+		//msg.setSeverity(FacesMessage.SEVERITY_ERROR);
+		msg.setSeverity(FacesMessage.SEVERITY_WARNING);
 		throw new ValidatorException(msg);
 
 		
